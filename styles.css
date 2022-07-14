@@ -104,11 +104,11 @@ input[type="submit"], input[type="reset"] {
     gap: 3vh 2vh;
     padding: 10px 1vw;
     flex-grow: 1;
-    grid-template-rows: repeat(auto-fit, 250px)
+    grid-template-rows: repeat(auto-fit, 350px)
 }
 
 #library > div {
-    height: 250px;
+    height: auto;
     font-size: 1.6rem;
     line-height: 2rem;
     padding: 20px;
@@ -118,7 +118,6 @@ input[type="submit"], input[type="reset"] {
     flex-direction: column;
     gap: 3vh;
 }
-
 
 
 #library > .notRead {
@@ -138,4 +137,8 @@ div > button {
     padding: 0.5vh 1vh;
     border-radius: 8px;
     margin-top: auto;
+}
+
+.readButton {
+    margin-top: -20px;
 }

@@ -39,9 +39,11 @@ function displayBook(book) {
     deleteButton.setAttribute('data-id', `${i}`)
     deleteButton.textContent = "Delete";
     oneBook.appendChild(deleteButton);
-    // let readButton = document.createElement("button");
-    // readButton.classList.add("readButton");
-    // oneBook.appendChild(readButton);
+    let readButton = document.createElement("button");
+    readButton.classList.add("readButton");
+    readButton.setAttribute('data-id', `${i}`);
+    readButton.textContent = "Read/UnRead";
+    oneBook.appendChild(readButton);
     if (book[i].read == "Read") {
         oneBook.classList.add("read")
     } else {
@@ -72,8 +74,7 @@ submit.addEventListener('click', function () {
 
 let deleteButtons = Array.from(document.querySelectorAll('.deleteButton'))
 
-
-let deleteTask = deleteButtons.forEach(function(button) {
+deleteButtons.forEach(function(button) {
     button.addEventListener('click', function () {
         let index = button.dataset.id;
         console.log(index);
@@ -84,13 +85,20 @@ let deleteTask = deleteButtons.forEach(function(button) {
     })
 })
 
-// const bookRead = document.getElementsByClassName('readButton')
-// bookRead.addEventListener('click', function () {
-//     if (div.classList.contains("notRead")) {
-//         div.classList.remove("notRead");
-//         div.classList.add("read")
-//     } else if (div.classList.contains("read")) {
-//         div.classList.remove("read");
-//         div.classList.add("notRead")
-//     }
-// }) 
+const readButtons = Array.from(document.querySelectorAll('.readButton'))
+
+readButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        let index = button.dataset.id;
+        console.log(index)
+        let readBook = document.getElementById(index);
+        console.log(readBook)
+        if (readBook.classList.contains("notRead")) {
+            readBook.classList.remove("notRead");
+            readBook.classList.add("read")
+        } else if (readBook.classList.contains("read")) {
+            readBook.classList.remove("read");
+            readBook.classList.add("notRead")
+        }
+    })
+})
