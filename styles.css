@@ -14,21 +14,21 @@
     padding: 0vh 1vw 1.5vh 1vw;
 }
 
-h1 {
+#header > h1 {
     font-size: 3rem;
     text-align: center;
     margin: 0px;
     margin-top: 5vh;
 }
 
-p {
+#header > p {
     font-size: 2rem;
     text-align: center;
     margin: 0px;
     margin-bottom: 3vh;
 }
 
-button {
+#new-book {
     background-color: blue;
     color: white;
     border-radius: 20px;
@@ -40,11 +40,16 @@ button {
 #main {
     display: flex;
     gap: 1vw;
+    padding: 0vh .5vw;
 }
 
-/* #form-container {
+#form-container {
     display: none;
-} */
+}
+
+.show#form-container {
+    display: block;
+}
 
 #book-form {
     border-radius: 15px;
@@ -64,19 +69,34 @@ button {
 .form-pair {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 3px;
 }
 
 input:not([type="checkbox"]) {
     width: 20vw;
     max-width: 400px;
     height: 5vh;
+    font-size: 25px;
+    padding-left: 10px;
 }
 
 input[type="checkbox"] {
     width: 3vw;
-    height: 3vh
+    height: 3vh;
+    margin-right: -.5vw;
 }
 
+input[type="submit"], input[type="reset"] {
+    width: 9vw;
+    border-radius: 8px;
+}
+
+#close {
+    padding: 1vh 2vw;
+    border-radius: 5px;
+    font-size: 18px;
+}
 
 #library {
     display: grid;
@@ -87,13 +107,23 @@ input[type="checkbox"] {
     grid-template-rows: repeat(auto-fit, 20vh)
 }
 
-#library > div:not(#form-container) {
-    border: 5px black solid;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#library > div {
     height: 20vh;
-    font-size: 20px;
-    background-color: white;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    padding: 1.5vw;
+    border-radius: 5px 15px 15px 5px;
+    font-weight: bold;
 }
 
+#library > div:nth-child(odd) {
+    background-color: rgb(134, 2, 2);
+    border: 3px rgb(134, 2, 2) solid;
+    color: white;
+}
+
+#library > div:nth-child(even) {
+    background-color: rgb(5, 132, 141);
+    color: white;
+    border: 3px rgb(5, 132, 141) solid;
+}
