@@ -104,26 +104,38 @@ input[type="submit"], input[type="reset"] {
     gap: 3vh 2vh;
     padding: 10px 1vw;
     flex-grow: 1;
-    grid-template-rows: repeat(auto-fit, 20vh)
+    grid-template-rows: repeat(auto-fit, 250px)
 }
 
 #library > div {
-    height: 20vh;
+    height: 250px;
     font-size: 1.6rem;
     line-height: 2rem;
-    padding: 1.5vw;
+    padding: 20px;
     border-radius: 5px 15px 15px 5px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 
-#library > div:nth-child(odd) {
+
+
+#library > .notRead {
     background-color: rgb(134, 2, 2);
     border: 3px rgb(134, 2, 2) solid;
     color: white;
 }
 
-#library > div:nth-child(even) {
+#library > .read {
     background-color: rgb(5, 132, 141);
     color: white;
     border: 3px rgb(5, 132, 141) solid;
+}
+
+div > button {
+    font-size: 20px;
+    padding: 0.5vh 1vh;
+    border-radius: 8px;
+    margin-top: auto;
 }
