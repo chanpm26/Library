@@ -16,8 +16,7 @@ function Book(title, author, pages, read) {
     this.read = read,
     this.info = function () {
         return (`${title} by ${author} is 
-        ${pages} pages.
-        ${read}`) 
+        ${pages} pages.`) 
     }
 }
 
@@ -95,7 +94,7 @@ readButtons.forEach(function(button) {
         console.log(readBook)
         if (readBook.classList.contains("notRead")) {
             readBook.classList.remove("notRead");
-            readBook.classList.add("read")
+            readBook.classList.add("read");
         } else if (readBook.classList.contains("read")) {
             readBook.classList.remove("read");
             readBook.classList.add("notRead")
