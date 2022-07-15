@@ -15,8 +15,7 @@ function Book(title, author, pages, read) {
     this.pages = pages,
     this.read = read,
     this.info = function () {
-        return (`${title} by ${author} is 
-        ${pages} pages.`) 
+        return (`${title} by ${author} is ${pages} pages.`) 
     }
 }
 

@@ -105,16 +105,15 @@ input[type="submit"], input[type="reset"] {
 #library {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10vw, 250px));
-    gap: 3vh 2vh;
     padding: 10px 1vw;
     flex-grow: 1;
     grid-template-rows: repeat(auto-fit, 350px)
 }
 
 #library > div {
-    height: auto;
-    font-size: 1.6rem;
-    line-height: 2rem;
+    height: 75%;
+    width: 75%;
+    font-size: 1.46rem;
     padding: 20px;
     border-radius: 5px 15px 15px 5px;
     font-weight: bold;
@@ -130,6 +129,7 @@ input[type="submit"], input[type="reset"] {
     color: black;
     text-align: center;
     border-radius: 8px;
+    margin-bottom: -5px;
 }
 
 #library > .notRead {
@@ -145,6 +145,7 @@ input[type="submit"], input[type="reset"] {
     color: black;
     text-align: center;
     border-radius: 8px;
+    margin-bottom: -5px;
 }
 
 #library > .read {
@@ -154,7 +155,6 @@ input[type="submit"], input[type="reset"] {
 }
 
 div > button {
-    font-size: 20px;
     padding: 0.5vh 1vw;
     border-radius: 8px;
     margin-top: auto;
@@ -164,3 +164,8 @@ div > button {
     margin-top: -20px;
 }
 
+.readButton, .deleteButton {
+    font-size: 1rem;
+    width: 75%;
+    align-self: center;
+}
