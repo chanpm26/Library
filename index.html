@@ -15,7 +15,7 @@
                 </div>
             <div id="main">
                     <div id="form-container">
-                        <form id="book-form">
+                        <div id="book-form">
                             Required forms are marked with *
                             <div class="form-pair">
                                 <label for="title">Title:*</label>
@@ -26,25 +26,23 @@
                                 <input type="text" id="author" required>
                             </div>
                             <div class="form-pair">
-                                <label for="pages"> Number of Pages: </label>
-                                <input type="number" id="pages">
+                                <label for="pages"> Number of Pages:* </label>
+                                <input type="number" id="pages" required>
                             </div>
                             <div>
-                                <input type="checkbox" id="read" value="Read">
+                                <input type="checkbox" id="read">
                                 <label for="read"> Read</label>
-                                <input type="checkbox" id="notRead" value="Not Read">
-                                <label for="notRead"> Not Read </label>
                             </div>
                             <div class="form-pair">
                                 <label for="comments"> Other Comments</label>
                                 <input type="textarea" id="comments">
                             </div>
                             <div>
-                                <input type="submit" id="submit">
+                                <button id="submit">Submit</button>
                                 <input type="reset">
                             </div>
                             <button id="close">Close</button>
-                        </form>
+                        </div>
                     </div>
                 <div id="library">
 

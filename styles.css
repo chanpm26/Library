@@ -91,9 +91,12 @@ input[type="checkbox"] {
     margin-right: -.5vw;
 }
 
-input[type="submit"], input[type="reset"] {
+#submit, input[type="reset"] {
     width: 9vw;
     border-radius: 8px;
+    height: 5vh;
+    font-size: 25px;
+    padding-left: 10px;
 }
 
 #close {

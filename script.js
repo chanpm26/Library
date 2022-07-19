@@ -9,11 +9,12 @@ addBook(thePlague)
 const maximumRide = new Book('Maximum Ride', 'James Patterson', 350, "Not Read")
 addBook(maximumRide)
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, comments) {
     this.title = title,
     this.author = author,
     this.pages = pages,
     this.read = read,
+    this.comments = comments,
     this.info = function () {
         return (`${title} by ${author} is ${pages} pages.`) 
     }
@@ -26,6 +27,7 @@ function addBook(book) {
 const display = document.getElementById("library")
 
 function displayBook(book) {
+    display.textContent = "";
     for (let i = 0; i < book.length; i++) {
     let oneBook = document.createElement("div");
     oneBook.innerText = book[i].info();
@@ -47,8 +49,36 @@ function displayBook(book) {
     } else {
         oneBook.classList.add("notRead")
     }
-}
-}
+    }
+    let deleteButtons = Array.from(document.querySelectorAll('.deleteButton'))
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function () {
+            let index = button.dataset.id;
+            console.log(index);
+            myLibrary.splice(index, 1);
+            let deletedBook = document.getElementById(index);
+            display.removeChild(deletedBook);
+            deleteButtons.splice(index, 1);
+        })
+    })
+
+    let readButtons = Array.from(document.querySelectorAll('.readButton'))
+    readButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            let index = button.dataset.id;
+            console.log(index)
+            let readBook = document.getElementById(index);
+            console.log(readBook)
+            if (readBook.classList.contains("notRead")) {
+                readBook.classList.remove("notRead");
+                readBook.classList.add("read");
+            } else if (readBook.classList.contains("read")) {
+                readBook.classList.remove("read");
+                readBook.classList.add("notRead")
+            }
+        })
+    })
+    }
 
 displayBook(myLibrary)
 
@@ -70,33 +100,29 @@ submit.addEventListener('click', function () {
     document.getElementById('form-container').classList.remove("show")
 })
 
-let deleteButtons = Array.from(document.querySelectorAll('.deleteButton'))
-
-deleteButtons.forEach(function(button) {
-    button.addEventListener('click', function () {
-        let index = button.dataset.id;
-        console.log(index);
-        myLibrary.splice(index, 1);
-        let deletedBook = document.getElementById(index);
-        display.removeChild(deletedBook);
-        deleteButtons.splice(index, 1);
-    })
-})
-
-const readButtons = Array.from(document.querySelectorAll('.readButton'))
-
-readButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        let index = button.dataset.id;
-        console.log(index)
-        let readBook = document.getElementById(index);
-        console.log(readBook)
-        if (readBook.classList.contains("notRead")) {
-            readBook.classList.remove("notRead");
-            readBook.classList.add("read");
-        } else if (readBook.classList.contains("read")) {
-            readBook.classList.remove("read");
-            readBook.classList.add("notRead")
+let state = ""
+let checkStatus = function() {
+        let check = document.getElementById('read');
+        if (check.checked == true) {
+            state = "Read"
+        } else {
+            state = "Not Read"
         }
-    })
+    }
+
+
+const userBook = submit.addEventListener('click', function() {
+    let title = document.getElementById('title').value
+    let author = document.getElementById('author').value
+    let pages = document.getElementById('pages').value
+    checkStatus()
+    let comments = document.getElementById('comments').value
+    let userAdded = new Book(title, author, pages, state, comments)
+    addBook(userAdded)
+    displayBook(myLibrary);
+    document.getElementById('title').value = ""
+    document.getElementById('author').value = ""
+    document.getElementById('pages').value = ""
+    document.getElementById('comments').value = ""
 })
+
