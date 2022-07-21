@@ -118,22 +118,23 @@ const addBookModule = (function() {
 
     const submit = document.getElementById('submit') 
 
-    submit.addEventListener('click', function () {
-        document.getElementById('form-container').classList.remove("show")
-    })
-
     const userBook = submit.addEventListener('click', function() {
         let title = document.getElementById('title').value
         let author = document.getElementById('author').value
         let pages = document.getElementById('pages').value
         checkStatus()
         let comments = document.getElementById('comments').value
+        if (title != "" && author != "") {
         let userAdded = new Book(title, author, pages, state, comments)
         displayModule.addBook(userAdded)
         displayModule.displayBook(displayModule.myLibrary);
-        document.getElementById('title').value = ""
-        document.getElementById('author').value = ""
-        document.getElementById('pages').value = ""
-        document.getElementById('comments').value = ""
+        document.getElementById('title').value = "";
+        document.getElementById('author').value = "";
+        document.getElementById('pages').value = "";
+        document.getElementById('comments').value = "";
+        document.getElementById('form-container').classList.remove("show");
+        } else {
+            alert("Please enter the required information")
+        }
     })
 })()
