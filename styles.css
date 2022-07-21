@@ -57,10 +57,10 @@ body {
 
 #book-form {
     border-radius: 15px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     border: 2px black dotted;
-    width: 25vw;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -78,7 +78,7 @@ body {
 }
 
 input:not([type="checkbox"]) {
-    width: 20vw;
+    width: 13vw;
     max-width: 400px;
     height: 5vh;
     font-size: 25px;
@@ -92,11 +92,12 @@ input[type="checkbox"] {
 }
 
 #submit, input[type="reset"] {
-    width: 9vw;
+    width: 6vw;
     border-radius: 8px;
     height: 5vh;
-    font-size: 25px;
-    padding-left: 10px;
+    font-size: 18px;
+    padding: 0px;
+    text-align: center;
 }
 
 #close {
